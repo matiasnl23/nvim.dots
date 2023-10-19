@@ -31,6 +31,7 @@ return {
             map("n", "<leader>sb", require("telescope.builtin").buffers, "Search buffers")
             map("n", "<leader>sw", require("telescope.builtin").grep_string, "Search word")
             map("n", "<leader>sg", require("telescope.builtin").live_grep, "Grep")
+            map("n", "<leader>sc", require("telescope.builtin").colorscheme, "Colorscheme")
             map("n", "<leader>ss", function()
                 require("telescope.builtin").current_buffer_fuzzy_find(
                     require("telescope.themes").get_dropdown({
