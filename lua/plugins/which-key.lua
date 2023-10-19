@@ -10,6 +10,7 @@ return {
                         u = { name = "UI" },
                         f = { name = "Files" },
                         b = { name = "Buffers" },
+                        s = { name = "Search" },
                     },
                     ["<space>"] = {
                         c = { name = "Code" },
