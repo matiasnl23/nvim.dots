@@ -1,7 +1,7 @@
 return {
     {
         "aserowy/tmux.nvim",
-        config = function ()
+        config = function()
             return require("tmux").setup()
         end
     },
@@ -30,4 +30,10 @@ return {
         end
     },
     "tpope/vim-surround",
+    {
+        "NMAC427/guess-indent.nvim",
+        confir = function()
+            require("guess-indent").setup()
+        end
+    }
 }
