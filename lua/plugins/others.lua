@@ -32,7 +32,7 @@ return {
     "tpope/vim-surround",
     {
         "NMAC427/guess-indent.nvim",
-        confir = function()
+        config = function()
             require("guess-indent").setup()
         end
     }
