@@ -4,6 +4,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "haydenmeade/neotest-jest",
+      "marilari88/neotest-vitest",
     },
     config = function()
       local map = require("helpers.keys").map
@@ -13,6 +14,7 @@ return {
           require("neotest-jest")({
             env = { CI = true },
           }),
+          require("neotest-vitest")
         },
       })
 
