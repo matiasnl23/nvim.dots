@@ -1,7 +1,7 @@
 return {
     "nvim-lualine/lualine.nvim",
     config = function()
-        local colorscheme = require("helpers.colorscheme")
+        local colorscheme = require("helpers.colorscheme").colorscheme
         local lualine_theme = colorscheme == "default" and "auto" or colorscheme
 
         require("lualine").setup({
