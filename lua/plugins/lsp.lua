@@ -136,5 +136,15 @@ return {
       require("trouble").setup()
     end,
   },
-  { "b0o/schemastore.nvim" }
+  { "b0o/schemastore.nvim" },
+  {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons"
+    },
+    opts = {}
+  }
 }
