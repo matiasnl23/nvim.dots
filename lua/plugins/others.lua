@@ -8,7 +8,7 @@ return {
     {
         "kazhala/close-buffers.nvim",
         opts = {
-            preserve_window_layout = { "this", "nameless" }
+            preserve_window_layout = { "all" }
         }
     },
     {
