@@ -13,6 +13,6 @@ local function get_if_available(name, opts)
     return "default"
 end
 
-local colorscheme = get_if_available("sonokai")
+local colorscheme = get_if_available("onedark")
 
 return colorscheme
