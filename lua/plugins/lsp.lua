@@ -9,10 +9,14 @@ return {
         tag = "legacy",
       },
       "folke/neodev.nvim",
+      "folke/neoconf.nvim",
       "RRethy/vim-illuminate",
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
+      -- Neoconf before lsp
+      require("neoconf").setup()
+
       -- Mason setup
       require("mason").setup()
       require("mason-lspconfig").setup({

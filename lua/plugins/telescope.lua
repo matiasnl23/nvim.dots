@@ -25,6 +25,12 @@ return {
             pcall(require("telescope").load_extension, "fzf")
 
             local map = require("helpers.keys").map
+            map("n", "<leader>gco", require("telescope.builtin").git_branches, "List branches")
+            map("n", "<leader>gcc", require("telescope.builtin").git_commits, "List commits")
+            map("n", "<leader>gcb", require("telescope.builtin").git_bcommits, "List buffer commits")
+            -- map({ "n", "v" }, "<leader>gcl", require("telescope.builtin").git_bcommits_range, "List selected lines commits")
+            map("n", "<leader>gss", require("telescope.builtin").git_status, "Git status")
+            map("n", "<leader>gst", require("telescope.builtin").git_stash, "Git stash list")
             map("n", "<C-p>", require("telescope.builtin").find_files, "Files")
             map("n", "<leader>sf", require("telescope.builtin").find_files, "Files")
             map("n", "<leader>sr", require("telescope.builtin").oldfiles, "Recently opened")

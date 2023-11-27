@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local map = require("helpers.keys").map
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
         "git",
@@ -20,4 +21,6 @@ require("helpers.keys").set_leader("\\")
 
 lazy.setup("plugins")
 
-require("helpers.keys").map("n", "<leader>L", lazy.show, "Show Lazy")
+map("n", "<leader>L", lazy.show, "Show Lazy")
+map("n", "<C-s>", ":update<CR>")
+map({"i", "v"}, "<C-s>", "<Esc>:update<CR>")
