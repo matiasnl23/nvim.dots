@@ -48,5 +48,9 @@ return {
             "MunifTanjim/nui.nvim",
             "rcarriga/nvim-notify"
         }
+    },
+    {
+        "folke/zen-mode.nvim",
+        opts = {}
     }
 }
