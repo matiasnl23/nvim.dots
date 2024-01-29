@@ -35,5 +35,18 @@ return {
         config = function()
             require("guess-indent").setup()
         end
+    },
+    {
+        "folke/twilight.nvim",
+        opts = {}
+    },
+    {
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        opts = {},
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify"
+        }
     }
 }
