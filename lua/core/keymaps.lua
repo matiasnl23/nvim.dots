@@ -22,4 +22,7 @@ map("v", ">", ">gv")
 map("n", "<leader>ut", toggle_dark_mode, "Toggle between light and dark themes")
 
 -- Clear search
-map("n", "<space><space>", "<cmd>nohl<cr>", "Clear highlights")
+map("n", "<space><space>", function()
+  vim.cmd("nohl")
+  require("notify").dismiss()
+end, "Clear highlights")

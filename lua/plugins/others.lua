@@ -3,13 +3,13 @@ return {
         "aserowy/tmux.nvim",
         config = function()
             return require("tmux").setup()
-        end
+        end,
     },
     {
         "kazhala/close-buffers.nvim",
         opts = {
-            preserve_window_layout = { "all" }
-        }
+            preserve_window_layout = { "all" },
+        },
     },
     {
         "echasnovski/mini.indentscope",
@@ -18,26 +18,26 @@ return {
             require("mini.indentscope").setup({
                 draw = {
                     delay = 50,
-                }
+                },
             })
-        end
+        end,
     },
     {
         "echasnovski/mini.pairs",
         version = "*",
         config = function()
             require("mini.pairs").setup()
-        end
+        end,
     },
     {
         "NMAC427/guess-indent.nvim",
         config = function()
             require("guess-indent").setup()
-        end
+        end,
     },
     {
         "folke/twilight.nvim",
-        opts = {}
+        opts = {},
     },
     {
         "folke/noice.nvim",
@@ -45,12 +45,42 @@ return {
         opts = {},
         dependencies = {
             "MunifTanjim/nui.nvim",
-            "rcarriga/nvim-notify"
-        }
+            "rcarriga/nvim-notify",
+        },
+        config = function()
+            require("noice").setup({
+                lsp = {
+                    -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+                    override = {
+                        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+                        ["vim.lsp.util.stylize_markdown"] = true,
+                        ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+                    },
+                },
+                -- you can enable a preset for easier configuration
+                presets = {
+                    bottom_search = true, -- use a classic bottom cmdline for search
+                    command_palette = true, -- position the cmdline and popupmenu together
+                    long_message_to_split = true, -- long messages will be sent to a split
+                    inc_rename = false, -- enables an input dialog for inc-rename.nvim
+                    lsp_doc_border = false, -- add a border to hover docs and signature help
+                },
+                routes = {
+                    {
+                        filter = {
+                            event = "msg_show",
+                            kind = "",
+                            find = "written",
+                        },
+                        opts = { skip = true },
+                    },
+                },
+            })
+        end,
     },
     {
         "folke/zen-mode.nvim",
-        opts = {}
+        opts = {},
     },
     {
         "folke/flash.nvim",
@@ -68,13 +98,13 @@ return {
         },
     },
     {
-        'kylechui/nvim-surround',
-        version = '*', -- Use for stability; omit to use `main` branch for the latest features
-        event = 'VeryLazy',
+        "kylechui/nvim-surround",
+        version = "*", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
         config = function()
-            require('nvim-surround').setup({
+            require("nvim-surround").setup({
                 -- Configuration here, or leave empty to use defaults
             })
-        end
-    }
+        end,
+    },
 }

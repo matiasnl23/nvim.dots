@@ -23,6 +23,7 @@ return {
             })
 
             pcall(require("telescope").load_extension, "fzf")
+            pcall(require("telescope").load_extension, "noice")
 
             local map = require("helpers.keys").map
             map("n", "<leader>gco", require("telescope.builtin").git_branches, "List branches")
