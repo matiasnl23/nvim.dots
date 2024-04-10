@@ -12,6 +12,15 @@ return {
       "folke/neoconf.nvim",
       "RRethy/vim-illuminate",
       "hrsh7th/cmp-nvim-lsp",
+      {
+        "rcarriga/nvim-dap-ui",
+        dependencies = {
+          "mfussenegger/nvim-dap",
+          "nvim-neotest/nvim-nio",
+          "williamboman/mason.nvim",
+          "jay-babu/mason-nvim-dap.nvim"
+        },
+      }
     },
     config = function()
       -- Neoconf before lsp
@@ -22,6 +31,11 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = { "lua_ls" },
         automatic_installation = true,
+      })
+
+      require("mason-nvim-dap").setup({
+        ensure_installed = { "node2", "chrome" },
+        handlers = {}
       })
 
       require("neodev").setup()
@@ -129,6 +143,26 @@ return {
           })
         end,
       })
+
+      local map = require("helpers.keys").map
+      local dap = require("dap")
+      local dapui = require("dapui")
+
+      dapui.setup()
+
+      map("n", "<F5>", dap.continue)
+      map("n", "<F10>", dap.step_over)
+      map("n", "<F11>", dap.step_into)
+      map("n", "<F12>", dap.step_out)
+
+      map("n", "<leader>dt", function ()
+        dap.toggle({ reset = true })
+      end)
+
+      map("n", "<leader>db", dap.toggle_breakpoint)
+      map("n", "<leader>dB", function()
+        dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+      end)
     end,
   },
   {
